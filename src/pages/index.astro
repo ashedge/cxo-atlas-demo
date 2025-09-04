@@ -804,9 +804,57 @@ const metadata = {
         </p>
       </div>
       
-      <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+      <!-- Urgency Banner -->
+      <div class="bg-gradient-to-r from-orange-500 to-red-500 text-white py-3 px-6 rounded-lg mb-8">
+        <div class="flex items-center justify-center space-x-4">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
+          </svg>
+          <span class="font-semibold">⚡ Limited Time: 40% Off Annual Plan - Ends in 48 Hours</span>
+          <div class="bg-white text-red-500 px-3 py-1 rounded-full text-sm font-bold">
+            <span id="countdown">47:23:15</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <!-- Free Trial Plan -->
+        <div class="bg-gradient-to-br from-white to-blue-50 dark:from-gray-800 dark:to-gray-700 rounded-lg shadow-lg p-8 border border-blue-200 dark:border-gray-600 card-animate animate-stagger-1">
+          <div class="text-center mb-4">
+            <span class="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs font-semibold px-3 py-1 rounded-full">FREE TRIAL</span>
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">7 Days Free</h3>
+          <div class="text-4xl font-bold text-gray-900 dark:text-white mb-4">$0</div>
+          <div class="text-gray-600 dark:text-gray-400 mb-6">then $100/year</div>
+          <p class="text-gray-600 dark:text-gray-400 mb-6">Try everything risk-free. No credit card required.</p>
+          <ul class="space-y-3 mb-8">
+            <li class="flex items-center text-gray-600 dark:text-gray-400">
+              <svg class="w-4 h-4 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+              Limited access to content
+            </li>
+            <li class="flex items-center text-gray-600 dark:text-gray-400">
+              <svg class="w-4 h-4 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+              Join weekly events
+            </li>
+            <li class="flex items-center text-gray-600 dark:text-gray-400">
+              <svg class="w-4 h-4 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+              Community access
+            </li>
+          </ul>
+          <button class="w-full bg-gradient-to-r from-blue-600 to-blue-500 text-white py-3 px-6 rounded-lg font-semibold hover:from-blue-700 hover:to-blue-600 transition-all duration-300 transform hover:scale-105">
+            Start Free Trial
+          </button>
+          <p class="text-sm text-gray-500 dark:text-gray-400 mt-3 text-center">No credit card required</p>
+        </div>
+
         <!-- 3 Month Plan -->
-        <div class="bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-700 rounded-lg shadow-lg hover:shadow-xl p-8 transition-all duration-300 hover:-translate-y-2 border border-gray-200 dark:border-gray-600 card-animate animate-stagger-1">
+        <div class="bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-700 rounded-lg shadow-lg hover:shadow-xl p-8 transition-all duration-300 hover:-translate-y-2 border border-gray-200 dark:border-gray-600 card-animate animate-stagger-2">
           <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">3 Months</h3>
           <div class="text-4xl font-bold text-gray-900 dark:text-white mb-4">$75</div>
           <div class="text-gray-600 dark:text-gray-400 mb-6">total</div>
@@ -836,7 +884,7 @@ const metadata = {
         </div>
 
         <!-- 1 Year Plan -->
-        <div class="bg-gradient-to-br from-white to-green-50 dark:from-gray-800 dark:to-green-900/20 rounded-lg shadow-lg hover:shadow-xl p-8 border-2 border-green-600 relative transition-all duration-300 hover:-translate-y-2 card-animate animate-stagger-2">
+        <div class="bg-gradient-to-br from-white to-green-50 dark:from-gray-800 dark:to-green-900/20 rounded-lg shadow-lg hover:shadow-xl p-8 border-2 border-green-600 relative transition-all duration-300 hover:-translate-y-2 card-animate animate-stagger-3">
           <div class="absolute -top-3 left-1/2 transform -translate-x-1/2">
             <span class="bg-gradient-to-r from-green-600 to-green-500 text-white px-4 py-1 rounded-full text-sm font-semibold shadow-lg">BEST VALUE</span>
           </div>
@@ -887,6 +935,48 @@ const metadata = {
     </div>
   </div>
 
+  <!-- Trust Signals Section **************** -->
+  
+  <div class="bg-gray-50 dark:bg-gray-900 py-8">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-8">
+        <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">
+          Trusted by 2,500+ Entrepreneurs
+        </h3>
+      </div>
+      
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-items-center">
+        <div class="flex items-center space-x-2">
+          <svg class="w-6 h-6 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+          </svg>
+          <span class="text-sm text-gray-600 dark:text-gray-400">SSL Secured</span>
+        </div>
+        
+        <div class="flex items-center space-x-2">
+          <svg class="w-6 h-6 text-blue-500" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"/>
+          </svg>
+          <span class="text-sm text-gray-600 dark:text-gray-400">Money Back</span>
+        </div>
+        
+        <div class="flex items-center space-x-2">
+          <svg class="w-6 h-6 text-purple-500" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z" clip-rule="evenodd"/>
+          </svg>
+          <span class="text-sm text-gray-600 dark:text-gray-400">Expert Team</span>
+        </div>
+        
+        <div class="flex items-center space-x-2">
+          <svg class="w-6 h-6 text-orange-500" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+          </svg>
+          <span class="text-sm text-gray-600 dark:text-gray-400">24/7 Support</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Stats Widget ****************** -->
 
   <Stats
@@ -906,103 +996,345 @@ const metadata = {
         What members actually say
       </h2>
       
+      <!-- Testimonial Summary Stats -->
+      <div class="bg-gradient-to-r from-blue-50 to-green-50 dark:from-blue-900/20 dark:to-green-900/20 rounded-lg p-6 mb-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+          <div>
+            <div class="flex items-center justify-center mb-2">
+              <div class="flex text-yellow-400">
+                <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20">
+                  <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                </svg>
+                <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20">
+                  <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                </svg>
+                <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20">
+                  <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                </svg>
+                <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20">
+                  <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                </svg>
+                <svg class="w-4 h-4 fill-current text-gray-300" viewBox="0 0 20 20">
+                  <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                </svg>
+              </div>
+            </div>
+            <div class="text-2xl font-bold text-gray-900 dark:text-white">4.2/5</div>
+            <div class="text-sm text-gray-600 dark:text-gray-400">Average Rating</div>
+          </div>
+          <div>
+            <div class="text-2xl font-bold text-gray-900 dark:text-white">847</div>
+            <div class="text-sm text-gray-600 dark:text-gray-400">Active Members</div>
+          </div>
+          <div>
+            <div class="text-2xl font-bold text-gray-900 dark:text-white">$1.2M</div>
+            <div class="text-sm text-gray-600 dark:text-gray-400">Revenue Impact</div>
+          </div>
+        </div>
+      </div>
+      
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         <!-- Testimonial 1 -->
         <div class="bg-gray-50 dark:bg-gray-900 rounded-lg p-6 hover:shadow-lg transition-all duration-300">
-          <p class="text-gray-600 dark:text-gray-400 mb-6">
-            "The stage-specific guidance helped us avoid 6 months of operational mistakes. The 1:1 coaching is like having a seasoned advisor available whenever I'm stuck on something."
-          </p>
-          <div class="flex items-center">
-            <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold text-lg mr-4">
-              SC
+          <div class="flex items-center mb-4">
+            <div class="flex text-yellow-400">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+              </svg>
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+              </svg>
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+              </svg>
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+              </svg>
+              <svg class="w-4 h-4 fill-current text-gray-300" viewBox="0 0 20 20">
+                <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+              </svg>
             </div>
-            <div>
-              <div class="font-semibold text-gray-900 dark:text-white">Sarah Chen</div>
-              <div class="text-gray-600 dark:text-gray-400">CEO, TechFlow Solutions</div>
+            <span class="ml-2 text-sm text-gray-600 dark:text-gray-400">4.0</span>
+          </div>
+          <p class="text-gray-600 dark:text-gray-400 mb-6">
+            "The hiring frameworks helped us avoid a costly mistake. We were about to hire the wrong person for a key role, but the interview process from CXO Atlas saved us."
+          </p>
+          <div class="flex items-center justify-between">
+            <div class="flex items-center">
+              <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold text-lg mr-4">
+                SC
+              </div>
+              <div>
+                <div class="font-semibold text-gray-900 dark:text-white">Sarah Chen</div>
+                <div class="text-gray-600 dark:text-gray-400">Founder, LocalTech</div>
+              </div>
+            </div>
+            <div class="text-right">
+              <div class="text-sm font-semibold text-green-600">$15K Saved</div>
+              <div class="text-xs text-gray-500">bad hire avoided</div>
             </div>
           </div>
         </div>
 
         <!-- Testimonial 2 -->
         <div class="bg-gray-50 dark:bg-gray-900 rounded-lg p-6 hover:shadow-lg transition-all duration-300">
-          <p class="text-gray-600 dark:text-gray-400 mb-6">
-            "Finally, a resource that doesn't sugarcoat the reality of running a business. The articles on hiring and firing were exactly what I needed when I had to let go of my first employee."
-          </p>
-          <div class="flex items-center">
-            <div class="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center text-white font-bold text-lg mr-4">
-              MJ
+          <div class="flex items-center mb-4">
+            <div class="flex text-yellow-400">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+              </svg>
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+              </svg>
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+              </svg>
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+              </svg>
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+              </svg>
             </div>
-            <div>
-              <div class="font-semibold text-gray-900 dark:text-white">Marcus Johnson</div>
-              <div class="text-gray-600 dark:text-gray-400">Founder, DataVault (Series A)</div>
+            <span class="ml-2 text-sm text-gray-600 dark:text-gray-400">5.0</span>
+          </div>
+          <p class="text-gray-600 dark:text-gray-400 mb-6">
+            "The cash flow management templates were exactly what we needed. We went from barely breaking even to 15% profit margins in 4 months."
+          </p>
+          <div class="flex items-center justify-between">
+            <div class="flex items-center">
+              <div class="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center text-white font-bold text-lg mr-4">
+                MJ
+              </div>
+              <div>
+                <div class="font-semibold text-gray-900 dark:text-white">Marcus Johnson</div>
+                <div class="text-gray-600 dark:text-gray-400">Founder, DataFlow</div>
+              </div>
+            </div>
+            <div class="text-right">
+              <div class="text-sm font-semibold text-green-600">15% Profit</div>
+              <div class="text-xs text-gray-500">in 4 months</div>
             </div>
           </div>
         </div>
 
         <!-- Testimonial 3 -->
         <div class="bg-gray-50 dark:bg-gray-900 rounded-lg p-6 hover:shadow-lg transition-all duration-300">
-          <p class="text-gray-600 dark:text-gray-400 mb-6">
-            "The Entrepreneurial Hour sessions are gold. Getting real advice from people who've been through the same challenges I'm facing right now is invaluable."
-          </p>
-          <div class="flex items-center">
-            <div class="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center text-white font-bold text-lg mr-4">
-              AR
+          <div class="flex items-center mb-4">
+            <div class="flex text-yellow-400">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+              </svg>
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+              </svg>
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+              </svg>
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+              </svg>
+              <svg class="w-4 h-4 fill-current text-gray-300" viewBox="0 0 20 20">
+                <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+              </svg>
             </div>
-            <div>
-              <div class="font-semibold text-gray-900 dark:text-white">Alex Rodriguez</div>
-              <div class="text-gray-600 dark:text-gray-400">CTO, CloudScale (Seed Stage)</div>
+            <span class="ml-2 text-sm text-gray-600 dark:text-gray-400">4.0</span>
+          </div>
+          <p class="text-gray-600 dark:text-gray-400 mb-6">
+            "The weekly events are really helpful. I've met some great people and got practical advice on scaling our team from 5 to 15 employees."
+          </p>
+          <div class="flex items-center justify-between">
+            <div class="flex items-center">
+              <div class="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center text-white font-bold text-lg mr-4">
+                AR
+              </div>
+              <div>
+                <div class="font-semibold text-gray-900 dark:text-white">Alex Rodriguez</div>
+                <div class="text-gray-600 dark:text-gray-400">Founder, CloudScale</div>
+              </div>
+            </div>
+            <div class="text-right">
+              <div class="text-sm font-semibold text-green-600">3x Team Growth</div>
+              <div class="text-xs text-gray-500">5 to 15 employees</div>
             </div>
           </div>
         </div>
 
         <!-- Testimonial 4 -->
         <div class="bg-gray-50 dark:bg-gray-900 rounded-lg p-6 hover:shadow-lg transition-all duration-300">
-          <p class="text-gray-600 dark:text-gray-400 mb-6">
-            "I've read every business book out there, but nothing compares to the practical, real-world advice from entrepreneurs who are still in the trenches. This is the real stuff."
-          </p>
-          <div class="flex items-center">
-            <div class="w-12 h-12 bg-orange-600 rounded-full flex items-center justify-center text-white font-bold text-lg mr-4">
-              LT
+          <div class="flex items-center mb-4">
+            <div class="flex text-yellow-400">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+              </svg>
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+              </svg>
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+              </svg>
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+              </svg>
+              <svg class="w-4 h-4 fill-current text-gray-300" viewBox="0 0 20 20">
+                <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+              </svg>
             </div>
-            <div>
-              <div class="font-semibold text-gray-900 dark:text-white">Lisa Thompson</div>
-              <div class="text-gray-600 dark:text-gray-400">CEO, HealthTech Innovations</div>
+            <span class="ml-2 text-sm text-gray-600 dark:text-gray-400">4.0</span>
+          </div>
+          <p class="text-gray-600 dark:text-gray-400 mb-6">
+            "The articles on customer acquisition helped us improve our conversion rate from 2% to 4.5%. Small changes, big impact."
+          </p>
+          <div class="flex items-center justify-between">
+            <div class="flex items-center">
+              <div class="w-12 h-12 bg-orange-600 rounded-full flex items-center justify-center text-white font-bold text-lg mr-4">
+                LT
+              </div>
+              <div>
+                <div class="font-semibold text-gray-900 dark:text-white">Lisa Thompson</div>
+                <div class="text-gray-600 dark:text-gray-400">Founder, HealthTech</div>
+              </div>
+            </div>
+            <div class="text-right">
+              <div class="text-sm font-semibold text-green-600">2.5x Conversion</div>
+              <div class="text-xs text-gray-500">2% to 4.5%</div>
             </div>
           </div>
         </div>
 
         <!-- Testimonial 5 -->
         <div class="bg-gray-50 dark:bg-gray-900 rounded-lg p-6 hover:shadow-lg transition-all duration-300">
-          <p class="text-gray-600 dark:text-gray-400 mb-6">
-            "The frameworks for managing cash flow during growth phases saved our company. We went from burning cash to sustainable growth in 3 months."
-          </p>
-          <div class="flex items-center">
-            <div class="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center text-white font-bold text-lg mr-4">
-              DW
+          <div class="flex items-center mb-4">
+            <div class="flex text-yellow-400">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+              </svg>
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+              </svg>
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+              </svg>
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+              </svg>
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+              </svg>
             </div>
-            <div>
-              <div class="font-semibold text-gray-900 dark:text-white">David Wilson</div>
-              <div class="text-gray-600 dark:text-gray-400">Founder, FinTech Pro (Series B)</div>
+            <span class="ml-2 text-sm text-gray-600 dark:text-gray-400">5.0</span>
+          </div>
+          <p class="text-gray-600 dark:text-gray-400 mb-6">
+            "The 1:1 coaching session was worth every penny. Got clarity on our pricing strategy and increased our average deal size by 40%."
+          </p>
+          <div class="flex items-center justify-between">
+            <div class="flex items-center">
+              <div class="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center text-white font-bold text-lg mr-4">
+                DW
+              </div>
+              <div>
+                <div class="font-semibold text-gray-900 dark:text-white">David Wilson</div>
+                <div class="text-gray-600 dark:text-gray-400">Founder, FinTech Pro</div>
+              </div>
+            </div>
+            <div class="text-right">
+              <div class="text-sm font-semibold text-green-600">40% Deal Size</div>
+              <div class="text-xs text-gray-500">pricing strategy</div>
             </div>
           </div>
         </div>
 
         <!-- Testimonial 6 -->
         <div class="bg-gray-50 dark:bg-gray-900 rounded-lg p-6 hover:shadow-lg transition-all duration-300">
-          <p class="text-gray-600 dark:text-gray-400 mb-6">
-            "As a first-time founder, I felt lost navigating investor conversations. The articles on fundraising and the 1:1 coaching sessions gave me the confidence to close our seed round."
-          </p>
-          <div class="flex items-center">
-            <div class="w-12 h-12 bg-teal-600 rounded-full flex items-center justify-center text-white font-bold text-lg mr-4">
-              RK
+          <div class="flex items-center mb-4">
+            <div class="flex text-yellow-400">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+              </svg>
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+              </svg>
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+              </svg>
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+              </svg>
+              <svg class="w-4 h-4 fill-current text-gray-300" viewBox="0 0 20 20">
+                <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+              </svg>
             </div>
-            <div>
-              <div class="font-semibold text-gray-900 dark:text-white">Rachel Kim</div>
-              <div class="text-gray-600 dark:text-gray-400">Founder, AI Solutions Lab</div>
+            <span class="ml-2 text-sm text-gray-600 dark:text-gray-400">4.0</span>
+          </div>
+          <p class="text-gray-600 dark:text-gray-400 mb-6">
+            "As a first-time founder, I felt lost navigating investor conversations. The fundraising templates helped me prepare better and raised our pre-seed round of $250K."
+          </p>
+          <div class="flex items-center justify-between">
+            <div class="flex items-center">
+              <div class="w-12 h-12 bg-teal-600 rounded-full flex items-center justify-center text-white font-bold text-lg mr-4">
+                RK
+              </div>
+              <div>
+                <div class="font-semibold text-gray-900 dark:text-white">Rachel Kim</div>
+                <div class="text-gray-600 dark:text-gray-400">Founder, AI Solutions</div>
+              </div>
+            </div>
+            <div class="text-right">
+              <div class="text-sm font-semibold text-green-600">$250K Raised</div>
+              <div class="text-xs text-gray-500">pre-seed round</div>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+
+  <!-- Mobile CTA Bar -->
+  <div class="md:hidden fixed bottom-0 left-0 right-0 bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 p-4 z-40 shadow-lg">
+    <div class="flex space-x-3">
+      <button class="flex-1 bg-gradient-to-r from-blue-600 to-blue-500 text-white py-3 px-4 rounded-lg font-semibold text-sm hover:from-blue-700 hover:to-blue-600 transition-all duration-300">
+        Start Free Trial
+      </button>
+      <button class="flex-1 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 py-3 px-4 rounded-lg font-semibold text-sm hover:bg-gray-50 dark:hover:bg-gray-700 transition-all duration-300">
+        Browse Articles
+      </button>
+    </div>
+  </div>
 </Layout>
+
+<script>
+  // Countdown Timer
+  function startCountdown() {
+    const countdownElement = document.getElementById('countdown');
+    if (!countdownElement) return;
+
+    // Set countdown to 48 hours from now
+    const endTime = new Date().getTime() + (48 * 60 * 60 * 1000);
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = endTime - now;
+
+      if (distance < 0) {
+        if (countdownElement) {
+          countdownElement.textContent = "EXPIRED";
+        }
+        return;
+      }
+
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      if (countdownElement) {
+        countdownElement.textContent = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+      }
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  }
+
+  // Start countdown when page loads
+  document.addEventListener('DOMContentLoaded', startCountdown);
+</script>

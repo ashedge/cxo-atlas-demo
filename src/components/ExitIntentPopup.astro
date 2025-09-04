@@ -1,0 +1,207 @@
+---
+// Exit Intent Popup Component for Lead Capture
+---
+
+<!-- Exit Intent Modal -->
+<div id="exit-intent-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden">
+  <div class="flex items-center justify-center min-h-screen p-4">
+    <div class="bg-white dark:bg-gray-800 rounded-lg max-w-md w-full p-8 relative">
+      <button id="close-modal" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+      
+      <div class="text-center">
+        <div class="w-16 h-16 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mx-auto mb-4">
+          <svg class="w-8 h-8 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+          </svg>
+        </div>
+        
+        <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+          Wait! Don't Miss Out
+        </h3>
+        <p class="text-gray-600 dark:text-gray-400 mb-6">
+          Get our free <strong>"10 Critical Business Mistakes to Avoid"</strong> guide before you go. Used by 2,500+ entrepreneurs.
+        </p>
+        
+        <form id="exit-intent-form" class="space-y-4">
+          <input 
+            type="email" 
+            placeholder="Your email address" 
+            class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white"
+            required
+            id="exit-email"
+          >
+          <button 
+            type="submit" 
+            class="w-full bg-gradient-to-r from-blue-600 to-blue-500 text-white py-3 px-6 rounded-lg font-semibold hover:from-blue-700 hover:to-blue-600 transition-all duration-300 transform hover:scale-105"
+          >
+            Get Free Guide
+          </button>
+        </form>
+        
+        <p class="text-xs text-gray-500 dark:text-gray-400 mt-4">
+          No spam. Unsubscribe anytime. Join 2,500+ entrepreneurs.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Type declarations for external libraries
+  declare const gtag: any;
+
+  class ExitIntentPopup {
+    private hasShown: boolean = false;
+    private isOpen: boolean = false;
+    private isMinimized: boolean = false;
+    private messages: any[] = [];
+
+    constructor() {
+      this.init();
+    }
+
+    init() {
+      // Exit intent detection
+      document.addEventListener('mouseleave', (e) => {
+        if (e.clientY <= 0 && !this.hasShown) {
+          this.showModal();
+        }
+      });
+
+      // Close modal
+      document.getElementById('close-modal')?.addEventListener('click', () => {
+        this.hideModal();
+      });
+
+      // Close on outside click
+      document.getElementById('exit-intent-modal')?.addEventListener('click', (e) => {
+        const target = e.target as HTMLElement;
+        if (target && target.id === 'exit-intent-modal') {
+          this.hideModal();
+        }
+      });
+
+      // Form submission
+      document.getElementById('exit-intent-form')?.addEventListener('submit', (e) => {
+        e.preventDefault();
+        this.handleFormSubmission();
+      });
+
+      // Track time on page for delayed popup
+      setTimeout(() => {
+        if (!this.hasShown && this.shouldShowDelayedPopup()) {
+          this.showModal();
+        }
+      }, 30000); // 30 seconds
+    }
+
+    showModal() {
+      const modal = document.getElementById('exit-intent-modal');
+      if (modal) {
+        modal.classList.remove('hidden');
+        this.hasShown = true;
+        this.trackEvent('exit_intent_popup_shown');
+      }
+    }
+
+    hideModal() {
+      const modal = document.getElementById('exit-intent-modal');
+      if (modal) {
+        modal.classList.add('hidden');
+        this.trackEvent('exit_intent_popup_closed');
+      }
+    }
+
+    handleFormSubmission() {
+      const emailInput = document.getElementById('exit-email') as HTMLInputElement;
+      const email = emailInput?.value;
+      if (email) {
+        // Here you would typically send the email to your backend
+        console.log('Exit intent email captured:', email);
+        
+        // Show success message
+        this.showSuccessMessage();
+        this.trackEvent('exit_intent_email_captured', { email });
+      }
+    }
+
+    showSuccessMessage() {
+      const modal = document.getElementById('exit-intent-modal');
+      if (modal) {
+        modal.innerHTML = `
+          <div class="text-center">
+            <div class="w-16 h-16 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-8 h-8 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+              Check Your Email!
+            </h3>
+            <p class="text-gray-600 dark:text-gray-400 mb-6">
+              Your free guide is on its way. Check your inbox (and spam folder) for the download link.
+            </p>
+            <button onclick="this.parentElement.parentElement.classList.add('hidden')" class="bg-gradient-to-r from-blue-600 to-blue-500 text-white py-3 px-6 rounded-lg font-semibold hover:from-blue-700 hover:to-blue-600 transition-all duration-300">
+              Continue Browsing
+            </button>
+          </div>
+        `;
+      }
+    }
+
+    shouldShowDelayedPopup() {
+      // Only show if user has scrolled past 50% of the page
+      const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+      return scrollPercent > 50;
+    }
+
+    trackEvent(eventName, properties = {}) {
+      // Google Analytics 4
+      if (typeof gtag !== 'undefined') {
+        gtag('event', eventName, properties);
+      }
+      
+      // Custom tracking
+      console.log('Event tracked:', eventName, properties);
+    }
+  }
+
+  // Initialize when DOM is loaded
+  document.addEventListener('DOMContentLoaded', () => {
+    new ExitIntentPopup();
+  });
+</script>
+
+<style>
+  #exit-intent-modal {
+    animation: fadeIn 0.3s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  #exit-intent-modal > div > div {
+    animation: slideIn 0.3s ease-out;
+  }
+
+  @keyframes slideIn {
+    from {
+      transform: translateY(-50px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+</style>

@@ -7,6 +7,9 @@ import CommonMeta from '~/components/common/CommonMeta.astro';
 import Favicons from '~/components/Favicons.astro';
 import CustomStyles from '~/components/CustomStyles.astro';
 import PageAnimations from '~/components/PageAnimations.astro';
+import Chatbot from '~/components/Chatbot.astro';
+import ExitIntentPopup from '~/components/ExitIntentPopup.astro';
+import ConversionTracking from '~/components/ConversionTracking.astro';
 import ApplyColorMode from '~/components/common/ApplyColorMode.astro';
 import Metadata from '~/components/common/Metadata.astro';
 import SiteVerification from '~/components/common/SiteVerification.astro';
@@ -48,5 +51,8 @@ const { language, textDirection } = I18N;
 
     <BasicScripts />
     <PageAnimations />
+    <Chatbot />
+    <ExitIntentPopup />
+    <ConversionTracking />
   </body>
 </html>

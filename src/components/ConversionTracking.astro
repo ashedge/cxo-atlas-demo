@@ -1,0 +1,208 @@
+---
+// Conversion Tracking Component
+---
+
+<script>
+  // Type declarations for external libraries
+  declare const gtag: any;
+  declare const fbq: any;
+
+  class ConversionTracking {
+    static trackEvent(eventName, properties = {}) {
+      // Google Analytics 4
+      if (typeof gtag !== 'undefined') {
+        gtag('event', eventName, {
+          ...properties,
+          timestamp: new Date().toISOString(),
+          page_url: window.location.href,
+          page_title: document.title
+        });
+      }
+      
+      // Facebook Pixel
+      if (typeof fbq !== 'undefined') {
+        fbq('track', eventName, properties);
+      }
+      
+      // Custom tracking
+      console.log('Event tracked:', eventName, properties);
+      
+      // Send to custom endpoint (replace with your analytics endpoint)
+      this.sendToCustomEndpoint(eventName, properties);
+    }
+    
+    static trackCTA(ctaText, location, planType = null) {
+      this.trackEvent('cta_click', {
+        cta_text: ctaText,
+        location: location,
+        plan_type: planType,
+        user_agent: navigator.userAgent,
+        screen_resolution: `${screen.width}x${screen.height}`
+      });
+    }
+    
+    static trackPricingView(planName) {
+      this.trackEvent('pricing_view', {
+        plan_name: planName,
+        timestamp: new Date().toISOString()
+      });
+    }
+    
+    static trackTrialStart(email = null) {
+      this.trackEvent('trial_start', {
+        email: email,
+        timestamp: new Date().toISOString(),
+        source: 'website'
+      });
+    }
+    
+    static trackExitIntent() {
+      this.trackEvent('exit_intent', {
+        timestamp: new Date().toISOString(),
+        page_scroll_percentage: this.getScrollPercentage()
+      });
+    }
+    
+    static trackEmailCapture(source) {
+      this.trackEvent('email_capture', {
+        source: source,
+        timestamp: new Date().toISOString()
+      });
+    }
+    
+    static trackChatbotInteraction(action) {
+      this.trackEvent('chatbot_interaction', {
+        action: action,
+        timestamp: new Date().toISOString()
+      });
+    }
+    
+    static getScrollPercentage() {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+      return Math.round((scrollTop / scrollHeight) * 100);
+    }
+    
+    static sendToCustomEndpoint(eventName, properties) {
+      // Replace with your actual analytics endpoint
+      const endpoint = 'https://your-analytics-endpoint.com/track';
+      
+      fetch(endpoint, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          event: eventName,
+          properties: properties,
+          timestamp: new Date().toISOString(),
+          session_id: this.getSessionId()
+        })
+      }).catch(error => {
+        console.log('Analytics tracking failed:', error);
+      });
+    }
+    
+    static getSessionId() {
+      let sessionId = sessionStorage.getItem('cxo_atlas_session_id');
+      if (!sessionId) {
+        sessionId = 'session_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+        sessionStorage.setItem('cxo_atlas_session_id', sessionId);
+      }
+      return sessionId;
+    }
+  }
+
+  // Track CTA clicks
+  document.addEventListener('click', function(e) {
+    const target = e.target as HTMLElement;
+    if (!target) return;
+    
+    // Track button clicks
+    if (target.matches && target.matches('button, a')) {
+      const ctaText = target.textContent?.trim() || '';
+      const location = target.closest('section')?.className || 'unknown';
+      
+      // Determine plan type for pricing CTAs
+      let planType: string | null = null;
+      if (target.textContent?.includes('Free Trial')) {
+        planType = 'free_trial';
+      } else if (target.textContent?.includes('3-Month')) {
+        planType = '3_month';
+      } else if (target.textContent?.includes('1-Year')) {
+        planType = '1_year';
+      }
+      
+      ConversionTracking.trackCTA(ctaText, location, planType);
+    }
+  });
+
+  // Track pricing section views
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const section = entry.target as HTMLElement;
+        if (section.querySelector('[class*="pricing"]') || section.textContent?.includes('Choose Your Plan')) {
+          ConversionTracking.trackEvent('pricing_section_view', {
+            timestamp: new Date().toISOString()
+          });
+        }
+      }
+    });
+  }, { threshold: 0.5 });
+
+  // Observe pricing sections
+  document.addEventListener('DOMContentLoaded', () => {
+    const pricingSections = document.querySelectorAll('section, div');
+    pricingSections.forEach(section => {
+      if (section.textContent?.includes('Choose Your Plan') || section.textContent?.includes('pricing')) {
+        observer.observe(section);
+      }
+    });
+  });
+
+  // Track scroll depth
+  let maxScrollDepth = 0;
+  window.addEventListener('scroll', () => {
+    const scrollPercentage = ConversionTracking.getScrollPercentage();
+    if (scrollPercentage > maxScrollDepth) {
+      maxScrollDepth = scrollPercentage;
+      
+      // Track milestone scroll depths
+      if (scrollPercentage >= 25 && maxScrollDepth < 50) {
+        ConversionTracking.trackEvent('scroll_depth_25', { depth: 25 });
+      } else if (scrollPercentage >= 50 && maxScrollDepth < 75) {
+        ConversionTracking.trackEvent('scroll_depth_50', { depth: 50 });
+      } else if (scrollPercentage >= 75 && maxScrollDepth < 90) {
+        ConversionTracking.trackEvent('scroll_depth_75', { depth: 75 });
+      } else if (scrollPercentage >= 90) {
+        ConversionTracking.trackEvent('scroll_depth_90', { depth: 90 });
+      }
+    }
+  });
+
+  // Track time on page
+  let startTime = Date.now();
+  window.addEventListener('beforeunload', () => {
+    const timeOnPage = Math.round((Date.now() - startTime) / 1000);
+    ConversionTracking.trackEvent('page_exit', {
+      time_on_page: timeOnPage,
+      max_scroll_depth: maxScrollDepth
+    });
+  });
+
+  // Track form submissions
+  document.addEventListener('submit', function(e) {
+    const form = e.target as HTMLFormElement;
+    if (!form) return;
+    
+    if (form.id === 'exit-intent-form') {
+      ConversionTracking.trackEmailCapture('exit_intent');
+    } else if (form.querySelector('input[type="email"]')) {
+      ConversionTracking.trackEmailCapture('contact_form');
+    }
+  });
+
+  // Make ConversionTracking available globally
+  (window as any).ConversionTracking = ConversionTracking;
+</script>

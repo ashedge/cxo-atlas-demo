@@ -1,0 +1,341 @@
+---
+// Chatbot component for CXO Atlas
+---
+
+<div id="chatbot-container" class="fixed bottom-6 right-6 z-50">
+  <!-- Chat Button -->
+  <button
+    id="chatbot-toggle"
+    class="bg-blue-600 hover:bg-blue-700 text-white rounded-full p-4 shadow-lg hover:shadow-xl transition-all duration-300 group"
+    aria-label="Open chatbot"
+  >
+    <svg
+      id="chat-icon"
+      class="w-6 h-6 transition-transform duration-300"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
+      />
+    </svg>
+    <svg
+      id="close-icon"
+      class="w-6 h-6 transition-transform duration-300 hidden"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M6 18L18 6M6 6l12 12"
+      />
+    </svg>
+  </button>
+
+  <!-- Chat Window -->
+  <div
+    id="chatbot-window"
+    class="hidden absolute bottom-20 right-0 w-80 h-96 bg-white dark:bg-gray-800 rounded-lg shadow-2xl border border-gray-200 dark:border-gray-700"
+  >
+    <!-- Chat Header -->
+    <div class="bg-blue-600 text-white p-4 rounded-t-lg flex items-center justify-between">
+      <div class="flex items-center space-x-2">
+        <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+          </svg>
+        </div>
+        <div>
+          <h3 class="font-semibold text-sm">CXO Atlas Assistant</h3>
+          <p class="text-xs text-blue-100">Online now</p>
+        </div>
+      </div>
+      <button
+        id="chatbot-minimize"
+        class="text-blue-100 hover:text-white transition-colors"
+        aria-label="Minimize chat"
+      >
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Chat Messages -->
+    <div id="chatbot-messages" class="flex-1 p-4 overflow-y-auto space-y-4">
+      <!-- Welcome Message -->
+      <div class="flex items-start space-x-2">
+        <div class="w-6 h-6 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center flex-shrink-0">
+          <svg class="w-3 h-3 text-blue-600 dark:text-blue-400" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+          </svg>
+        </div>
+        <div class="bg-gray-100 dark:bg-gray-700 rounded-lg p-3 max-w-xs">
+          <p class="text-sm text-gray-800 dark:text-gray-200">
+            Hi! I'm your CXO Atlas assistant. I can help you find articles, explain business concepts, or answer questions about entrepreneurship. What would you like to know?
+          </p>
+        </div>
+      </div>
+
+      <!-- Quick Actions -->
+      <div class="flex flex-wrap gap-2">
+        <button class="quick-action-btn bg-blue-50 dark:bg-blue-900 text-blue-700 dark:text-blue-300 text-xs px-3 py-1 rounded-full hover:bg-blue-100 dark:hover:bg-blue-800 transition-colors" data-action="articles">
+          Browse Articles
+        </button>
+        <button class="quick-action-btn bg-green-50 dark:bg-green-900 text-green-700 dark:text-green-300 text-xs px-3 py-1 rounded-full hover:bg-green-100 dark:hover:bg-green-800 transition-colors" data-action="coaching">
+          1:1 Coaching
+        </button>
+        <button class="quick-action-btn bg-purple-50 dark:bg-purple-900 text-purple-700 dark:text-purple-300 text-xs px-3 py-1 rounded-full hover:bg-purple-100 dark:hover:bg-purple-800 transition-colors" data-action="events">
+          Events
+        </button>
+      </div>
+    </div>
+
+    <!-- Chat Input -->
+    <div class="p-4 border-t border-gray-200 dark:border-gray-700">
+      <div class="flex space-x-2">
+        <input
+          id="chatbot-input"
+          type="text"
+          placeholder="Ask me anything about business..."
+          class="flex-1 px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"
+        />
+        <button
+          id="chatbot-send"
+          class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors"
+          aria-label="Send message"
+        >
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  class Chatbot {
+    constructor() {
+      this.isOpen = false;
+      this.isMinimized = false;
+      this.messages = [];
+      this.init();
+    }
+
+    init() {
+      const toggleBtn = document.getElementById('chatbot-toggle');
+      const window = document.getElementById('chatbot-window');
+      const minimizeBtn = document.getElementById('chatbot-minimize');
+      const input = document.getElementById('chatbot-input');
+      const sendBtn = document.getElementById('chatbot-send');
+      const messagesContainer = document.getElementById('chatbot-messages');
+      const quickActionBtns = document.querySelectorAll('.quick-action-btn');
+
+      // Toggle chat window
+      toggleBtn?.addEventListener('click', () => {
+        this.toggle();
+      });
+
+      // Minimize chat window
+      minimizeBtn?.addEventListener('click', () => {
+        this.minimize();
+      });
+
+      // Send message on button click
+      sendBtn?.addEventListener('click', () => {
+        this.sendMessage();
+      });
+
+      // Send message on Enter key
+      input?.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+          this.sendMessage();
+        }
+      });
+
+      // Quick action buttons
+      quickActionBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const action = e.target.dataset.action;
+          this.handleQuickAction(action);
+        });
+      });
+
+      // Add some sample responses
+      this.responses = {
+        articles: "I can help you find articles! We have 739+ articles organized by business stage. What stage are you in? (0-1, 1-10, or 10+)",
+        coaching: "Our 1:1 coaching sessions with experts are available for annual subscribers. You get 4 hours of personalized guidance. Would you like to learn more?",
+        events: "We host weekly Entrepreneurial Hour events every Wednesday at 8:00-9:00 AM, led by Charles (Chuck) Kaucher. Would you like to join?",
+        default: "I'm here to help with CXO Atlas content! You can ask me about articles, coaching, events, or any business questions. What would you like to know?"
+      };
+    }
+
+    toggle() {
+      const window = document.getElementById('chatbot-window');
+      const chatIcon = document.getElementById('chat-icon');
+      const closeIcon = document.getElementById('close-icon');
+
+      this.isOpen = !this.isOpen;
+      
+      if (this.isOpen) {
+        window?.classList.remove('hidden');
+        window?.classList.add('flex', 'flex-col');
+        chatIcon?.classList.add('hidden');
+        closeIcon?.classList.remove('hidden');
+        document.getElementById('chatbot-input')?.focus();
+      } else {
+        window?.classList.add('hidden');
+        window?.classList.remove('flex', 'flex-col');
+        chatIcon?.classList.remove('hidden');
+        closeIcon?.classList.add('hidden');
+      }
+    }
+
+    minimize() {
+      const window = document.getElementById('chatbot-window');
+      window?.classList.add('hidden');
+      window?.classList.remove('flex', 'flex-col');
+      document.getElementById('chat-icon')?.classList.remove('hidden');
+      document.getElementById('close-icon')?.classList.add('hidden');
+      this.isOpen = false;
+    }
+
+    sendMessage() {
+      const input = document.getElementById('chatbot-input');
+      const message = input?.value.trim();
+      
+      if (!message) return;
+
+      this.addMessage(message, 'user');
+      input.value = '';
+
+      // Simulate bot response
+      setTimeout(() => {
+        this.generateResponse(message);
+      }, 1000);
+    }
+
+    addMessage(text: string, sender: 'user' | 'bot') {
+      const messagesContainer = document.getElementById('chatbot-messages');
+      if (!messagesContainer) return;
+
+      const messageDiv = document.createElement('div');
+      messageDiv.className = `flex items-start space-x-2 ${sender === 'user' ? 'flex-row-reverse space-x-reverse' : ''}`;
+
+      const avatar = document.createElement('div');
+      avatar.className = `w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 ${
+        sender === 'user' 
+          ? 'bg-gray-500' 
+          : 'bg-blue-100 dark:bg-blue-900'
+      }`;
+
+      if (sender === 'user') {
+        avatar.innerHTML = '<svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>';
+      } else {
+        avatar.innerHTML = '<svg class="w-3 h-3 text-blue-600 dark:text-blue-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>';
+      }
+
+      const messageContent = document.createElement('div');
+      messageContent.className = `rounded-lg p-3 max-w-xs ${
+        sender === 'user'
+          ? 'bg-blue-600 text-white'
+          : 'bg-gray-100 dark:bg-gray-700'
+      }`;
+
+      const messageText = document.createElement('p');
+      messageText.className = `text-sm ${
+        sender === 'user' ? 'text-white' : 'text-gray-800 dark:text-gray-200'
+      }`;
+      messageText.textContent = text;
+
+      messageContent.appendChild(messageText);
+      messageDiv.appendChild(avatar);
+      messageDiv.appendChild(messageContent);
+      messagesContainer.appendChild(messageDiv);
+
+      // Scroll to bottom
+      messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    }
+
+    generateResponse(userMessage: string) {
+      const lowerMessage = userMessage.toLowerCase();
+      let response = this.responses.default;
+
+      if (lowerMessage.includes('article') || lowerMessage.includes('content')) {
+        response = this.responses.articles;
+      } else if (lowerMessage.includes('coach') || lowerMessage.includes('mentor')) {
+        response = this.responses.coaching;
+      } else if (lowerMessage.includes('event') || lowerMessage.includes('meeting')) {
+        response = this.responses.events;
+      } else if (lowerMessage.includes('hello') || lowerMessage.includes('hi')) {
+        response = "Hello! I'm here to help you navigate CXO Atlas. What can I assist you with today?";
+      } else if (lowerMessage.includes('help')) {
+        response = "I can help you with:\n• Finding relevant articles for your business stage\n• Information about 1:1 coaching sessions\n• Details about our weekly events\n• General business questions\n\nWhat would you like to know?";
+      }
+
+      this.addMessage(response, 'bot');
+    }
+
+    handleQuickAction(action: string) {
+      const responses = {
+        articles: "Let me help you find articles! We have content organized by business stages: 0-1 (idea to first revenue), 1-10 (building systems), and 10+ (scaling operations). Which stage interests you?",
+        coaching: "Our 1:1 coaching includes 4 hours with experienced entrepreneurs for annual subscribers. It's perfect for personalized guidance on your specific challenges. Interested in learning more?",
+        events: "Join our weekly Entrepreneurial Hour every Wednesday 8:00-9:00 AM, led by Charles (Chuck) Kaucher. It's a great way to connect with other entrepreneurs and get practical advice."
+      };
+
+      this.addMessage(responses[action as keyof typeof responses] || this.responses.default, 'bot');
+    }
+  }
+
+  // Initialize chatbot when DOM is loaded
+  document.addEventListener('DOMContentLoaded', () => {
+    new Chatbot();
+  });
+</script>
+
+<style>
+  #chatbot-container {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  .quick-action-btn {
+    transition: all 0.2s ease;
+  }
+
+  .quick-action-btn:hover {
+    transform: translateY(-1px);
+  }
+
+  #chatbot-messages::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  #chatbot-messages::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  #chatbot-messages::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 2px;
+  }
+
+  #chatbot-messages::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+  }
+
+  .dark #chatbot-messages::-webkit-scrollbar-thumb {
+    background: #475569;
+  }
+
+  .dark #chatbot-messages::-webkit-scrollbar-thumb:hover {
+    background: #64748b;
+  }
+</style>
