@@ -12,7 +12,7 @@ export const headerData = {
     },
     {
       text: 'Events',
-      href: getPermalink('/community'),
+      href: getPermalink('/events'),
     },
     {
       text: 'Our Story',
@@ -20,8 +20,8 @@ export const headerData = {
     },
   ],
   actions: [
-    { text: 'Sign In', href: getPermalink('/signin') },
-    { text: 'Start Free Trial', href: getPermalink('/signup'), variant: 'primary' },
+    { text: 'Sign In', href: '#' },
+    { text: 'Start Free Trial', href: '#', variant: 'primary' },
   ],
 };
 

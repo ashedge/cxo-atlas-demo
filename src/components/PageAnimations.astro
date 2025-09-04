@@ -34,14 +34,14 @@
     // Staggered animations for cards and lists
     const staggerElements = document.querySelectorAll('[class*="animate-stagger"]');
     staggerElements.forEach((el, index) => {
-      el.style.animationDelay = `${index * 0.1}s`;
+      (el as HTMLElement).style.animationDelay = `${index * 0.1}s`;
     });
 
     // Add hover effects to cards
     const cards = document.querySelectorAll('.hover-lift, .hover-scale, .hover-glow');
     cards.forEach(card => {
       card.addEventListener('mouseenter', function() {
-        this.style.transition = 'all 0.3s ease';
+        (this as HTMLElement).style.transition = 'all 0.3s ease';
       });
     });
 
@@ -50,8 +50,8 @@
     anchorLinks.forEach(link => {
       link.addEventListener('click', function(e) {
         e.preventDefault();
-        const targetId = this.getAttribute('href');
-        const targetElement = document.querySelector(targetId);
+        const targetId = (this as HTMLAnchorElement).getAttribute('href');
+        const targetElement = targetId ? document.querySelector(targetId) : null;
         if (targetElement) {
           targetElement.scrollIntoView({
             behavior: 'smooth',
@@ -78,7 +78,7 @@
       window.addEventListener('scroll', () => {
         const scrolled = window.pageYOffset;
         const rate = scrolled * -0.5;
-        hero.style.transform = `translateY(${rate}px)`;
+        (hero as HTMLElement).style.transform = `translateY(${rate}px)`;
       });
     }
 
@@ -88,7 +88,7 @@
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           const counter = entry.target;
-          const target = parseInt(counter.getAttribute('data-counter'));
+          const target = parseInt(counter.getAttribute('data-counter') || '0');
           const duration = 2000; // 2 seconds
           const increment = target / (duration / 16); // 60fps
           let current = 0;
@@ -96,10 +96,10 @@
           const updateCounter = () => {
             current += increment;
             if (current < target) {
-              counter.textContent = Math.floor(current);
+              counter.textContent = Math.floor(current).toString();
               requestAnimationFrame(updateCounter);
             } else {
-              counter.textContent = target;
+              counter.textContent = target.toString();
             }
           };
 
@@ -117,21 +117,21 @@
     const sections = document.querySelectorAll('section, .section');
     sections.forEach((section, index) => {
       section.classList.add('intersect-animate');
-      section.style.animationDelay = `${index * 0.2}s`;
+      (section as HTMLElement).style.animationDelay = `${index * 0.2}s`;
     });
 
     // Typing animation for text
     const typingElements = document.querySelectorAll('[data-typing]');
     typingElements.forEach(element => {
-      const text = element.getAttribute('data-typing');
-      const speed = parseInt(element.getAttribute('data-speed')) || 100;
+      const text = element.getAttribute('data-typing') || '';
+      const speed = parseInt(element.getAttribute('data-speed') || '100');
       let i = 0;
       
       element.textContent = '';
       
       const typeWriter = () => {
         if (i < text.length) {
-          element.textContent += text.charAt(i);
+          element.textContent = (element.textContent || '') + text.charAt(i);
           i++;
           setTimeout(typeWriter, speed);
         }
