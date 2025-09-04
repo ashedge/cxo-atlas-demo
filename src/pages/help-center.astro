@@ -1,0 +1,139 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Content from '~/components/widgets/Content.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Help Center — CXO Atlas',
+  description: 'Get support and find answers to common questions about CXO Atlas executive consulting services.',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Widget ******************* -->
+  <Hero
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Contact Support',
+        href: '/contact',
+        icon: 'tabler:mail',
+      },
+      { text: 'Back to Main Site', href: '/' },
+    ]}
+    image={{ src: '~/assets/images/hero-image.png', alt: 'CXO Atlas Help Center' }}
+  >
+    <Fragment slot="title">
+      Help Center & <span class="text-accent dark:text-white">Support</span>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      Find answers to your questions about our executive consulting services, get support, and access resources to help you succeed.
+    </Fragment>
+  </Hero>
+
+  <!-- Content Widget **************** -->
+  <Content
+    isReversed
+    tagline="Quick Links"
+    title="Get Started with CXO Atlas"
+    items={[
+      {
+        title: 'Service Overview',
+        description:
+          'Learn about our comprehensive executive consulting services, strategic planning, and digital transformation capabilities.',
+      },
+      {
+        title: 'Engagement Process',
+        description:
+          'Understand our four-phase approach: Discovery, Strategy Development, Implementation, and Optimization.',
+      },
+      {
+        title: 'Client Resources',
+        description:
+          'Access exclusive resources, frameworks, and tools designed specifically for our executive clients.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Executive Support Services',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Comprehensive Support</h3>
+      We're here to help you succeed at every step of your executive journey
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- FAQs Widget ******************* -->
+  <FAQs
+    title="Frequently Asked Questions"
+    subtitle="Quick answers to common questions about our services, processes, and support options."
+    tagline="Support"
+    classes={{ container: 'max-w-6xl' }}
+    items={[
+      {
+        title: 'How do I get started with CXO Atlas?',
+        description:
+          "Getting started is simple. Contact us through our website or call our office to schedule an initial consultation. We'll discuss your organization's needs, challenges, and goals to determine how we can best support your executive initiatives.",
+      },
+      {
+        title: 'What information do you need for the initial consultation?',
+        description:
+          'For our initial consultation, we typically need information about your organization size, industry, current challenges, strategic objectives, and timeline. We may also request relevant business documents or metrics to better understand your situation.',
+      },
+      {
+        title: 'How do you ensure confidentiality?',
+        description:
+          'Confidentiality is paramount in our work. We sign comprehensive non-disclosure agreements (NDAs) with all clients and maintain strict confidentiality protocols. All our team members are bound by professional confidentiality standards.',
+      },
+      {
+        title: 'What is your typical engagement timeline?',
+        description:
+          'Engagement timelines vary based on scope and complexity. Strategic planning projects typically take 3-6 months, while comprehensive transformation initiatives may extend to 12-18 months. We provide detailed timelines during the discovery phase.',
+      },
+      {
+        title: 'Do you work with international clients?',
+        description:
+          'Yes, we work with clients globally. Our team has experience across multiple markets and can adapt our methodologies to different cultural and regulatory environments. We offer both on-site and remote consulting options.',
+      },
+      {
+        title: 'How do you measure project success?',
+        description:
+          'We establish clear, measurable success criteria at the beginning of each engagement. These typically include financial metrics, operational improvements, strategic milestone achievements, and stakeholder satisfaction scores.',
+      },
+    ]}
+  />
+
+  <!-- CallToAction Widget *********** -->
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Schedule Consultation',
+        href: '/contact',
+        icon: 'tabler:calendar',
+      },
+      {
+        variant: 'secondary',
+        text: 'Back to Main Site',
+        href: '/',
+        icon: 'tabler:arrow-left',
+      },
+    ]}
+  >
+    <Fragment slot="title">
+      Need More Help?&nbsp;<br class="block sm:hidden" /><span class="sm:whitespace-nowrap">We're Here for You</span>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      Can't find what you're looking for? Our team is ready to provide personalized support and answer any questions you may have.
+    </Fragment>
+  </CallToAction>
+</Layout>

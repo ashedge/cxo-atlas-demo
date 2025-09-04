@@ -2,8 +2,20 @@
 import { SITE } from 'astrowind:config';
 ---
 
-<span
-  class="self-center ml-2 rtl:ml-0 rtl:mr-2 text-2xl md:text-xl font-bold text-gray-900 whitespace-nowrap dark:text-white"
->
-  🚀 {SITE?.name}
-</span>
+<div class="flex items-center space-x-3">
+  <!-- CXO Atlas Professional Logo -->
+  <div class="flex items-center justify-center w-12 h-12 bg-gradient-to-br from-blue-700 via-blue-600 to-blue-500 rounded-xl shadow-lg">
+    <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+      <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+    </svg>
+  </div>
+  <div class="flex flex-col">
+    <span class="text-xl md:text-lg font-bold text-gray-900 whitespace-nowrap dark:text-white leading-tight">
+      <span class="text-blue-600 dark:text-blue-400 font-extrabold">CXO</span> Atlas
+    </span>
+    <span class="text-xs text-gray-500 dark:text-gray-400 font-medium tracking-wide uppercase">
+      Practical CXO Guidance
+    </span>
+  </div>
+</div>

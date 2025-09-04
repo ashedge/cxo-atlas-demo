@@ -1,0 +1,190 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Content from '~/components/widgets/Content.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Our Story — CXO Atlas',
+  description: 'How CXO Atlas started collecting hard-won lessons from operators who\'ve scaled businesses, made expensive mistakes, and figured out what actually works.',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Widget ******************* -->
+  <Hero
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Browse Articles Free',
+        href: '/blog',
+        icon: 'tabler:book',
+      },
+      { text: 'Join Community', href: '/signup' },
+    ]}
+    image={{ src: '~/assets/images/hero-image.png', alt: 'CXO Atlas Story' }}
+  >
+    <Fragment slot="title">
+      How this <span class="text-accent dark:text-white">started</span>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      Most business resources are written by consultants, academics, or people who sold their companies years ago and forgot what the day-to-day grind actually feels like.
+    </Fragment>
+  </Hero>
+
+  <!-- The Problem Section **************** -->
+  
+  <div class="px-6 py-16 md:py-24 bg-gray-50 dark:bg-gray-900">
+    <div class="mx-auto max-w-4xl">
+      <div class="space-y-8 text-lg text-gray-600 dark:text-gray-400">
+        <p>
+          We started collecting operational knowledge from people who are still in the trenches—founders, CEOs, and operators who are actively building and scaling businesses right now. The kind of people who remember what it's like to lay awake at 3 AM wondering if they're making the right call.
+        </p>
+        
+        <p>
+          The goal isn't to create another business blog with recycled LinkedIn wisdom. It's to build a resource that actually helps when you're facing a real decision and need to know what worked for someone in a genuinely similar situation.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- The Solution Section **************** -->
+
+  <Content
+    isReversed
+    tagline="The Solution"
+    title="Real knowledge from real operators"
+    items={[
+      {
+        title: 'Still in the Trenches',
+        description: 'We collect insights from operators who are actively building and scaling businesses right now, not retired consultants.',
+      },
+      {
+        title: 'Specific Situations',
+        description: 'Organized by business stage and specific challenges, not generic business advice.',
+      },
+      {
+        title: 'What Actually Works',
+        description: 'Focus on what worked in practice, not theoretical frameworks or academic case studies.',
+      },
+      {
+        title: 'No Fluff',
+        description: 'Skip the motivational content and get straight to practical guidance you can use today.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Real Operators Sharing Knowledge',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-4">The difference is real experience</h3>
+      <p class="text-lg text-gray-600 dark:text-gray-400 mb-6">
+        Our contributors are operators who've made expensive mistakes, learned hard lessons, and figured out what actually works in practice.
+      </p>
+      <div class="space-y-3">
+        <div class="flex items-center text-gray-600 dark:text-gray-400">
+          <svg class="w-5 h-5 mr-3 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+          </svg>
+          Currently scaling companies
+        </div>
+        <div class="flex items-center text-gray-600 dark:text-gray-400">
+          <svg class="w-5 h-5 mr-3 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+          </svg>
+          Made real mistakes and learned from them
+        </div>
+        <div class="flex items-center text-gray-600 dark:text-gray-400">
+          <svg class="w-5 h-5 mr-3 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+          </svg>
+          Remember what 3 AM decisions feel like
+        </div>
+      </div>
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- Testimonial Section **************** -->
+
+  <div class="px-6 py-16 md:py-24 bg-white dark:bg-gray-800">
+    <div class="mx-auto max-w-4xl">
+      <blockquote class="text-center">
+        <p class="text-xl text-gray-600 dark:text-gray-400 mb-8">
+          "I wish I'd had this when I was scaling my first company. Would have saved me about six months of expensive mistakes and a lot of sleepless nights wondering if I was the only one who felt completely unprepared for every new challenge."
+        </p>
+        <footer class="flex items-center justify-center">
+          <div class="flex items-center space-x-3">
+            <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold text-lg">
+              S
+            </div>
+            <div class="text-left">
+              <div class="font-semibold text-gray-900 dark:text-white">Sarah Chen</div>
+              <div class="text-gray-600 dark:text-gray-400">Founder, TechFlow (acquired 2023)</div>
+            </div>
+          </div>
+        </footer>
+      </blockquote>
+    </div>
+  </div>
+
+  <!-- What We've Built Section **************** -->
+
+  <div class="px-6 py-16 md:py-24 bg-gray-50 dark:bg-gray-900">
+    <div class="mx-auto max-w-6xl">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl mb-4">
+          What we've built
+        </h2>
+        <p class="text-lg text-gray-600 dark:text-gray-400">
+          A comprehensive resource for operators at every stage of their journey
+        </p>
+      </div>
+      
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-sm text-center">
+          <div class="text-4xl font-bold text-blue-600 mb-2">450+</div>
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">Articles</h3>
+          <p class="text-gray-600 dark:text-gray-400">Organized by business stage and specific challenges, written by operators who've been there.</p>
+        </div>
+        
+        <div class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-sm text-center">
+          <div class="text-4xl font-bold text-blue-600 mb-2">2,500+</div>
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">Active Members</h3>
+          <p class="text-gray-600 dark:text-gray-400">Founders and operators sharing experiences and helping each other navigate challenges.</p>
+        </div>
+        
+        <div class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-sm text-center">
+          <div class="text-4xl font-bold text-blue-600 mb-2">24/7</div>
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">AI Coach</h3>
+          <p class="text-gray-600 dark:text-gray-400">Trained on our entire knowledge base to answer your operational questions anytime.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CallToAction Widget *********** -->
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Start Free Trial',
+        href: '/signup',
+        icon: 'tabler:rocket',
+      },
+    ]}
+  >
+    <Fragment slot="title">
+      Ready to get the real stuff&nbsp;<br class="block sm:hidden" /><span class="sm:whitespace-nowrap">about running a business?</span>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      Join thousands of operators who are getting practical guidance from people who've actually built and scaled companies. No theory, just what works.
+    </Fragment>
+  </CallToAction>
+</Layout>
