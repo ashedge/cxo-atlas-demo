@@ -1,0 +1,98 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Content from '~/components/widgets/Content.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Operational Issues - CXO Atlas',
+  description: 'Managing complexity and operational challenges. Get practical guidance for entrepreneurs dealing with growing operational complexity.',
+  keywords: 'operational issues, business complexity, process management, operational excellence, business management',
+  canonical: 'https://cxo-atlas.com/article/operational-issues'
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    title="Operational Issues"
+    subtitle="Managing complexity and operational challenges. Get practical guidance for entrepreneurs dealing with growing operational complexity."
+    actions={[
+      { text: 'Browse All Articles', href: '/article', variant: 'primary' },
+      { text: 'Back to Journey Map', href: '/#journey' },
+    ]}
+    image={{ src: '~/assets/images/hero-image.png', alt: 'Operational Issues' }}
+  />
+
+  <Content
+    id="operations-content"
+    class="py-16 md:py-24"
+    background="light"
+  >
+    <div class="max-w-4xl mx-auto">
+      <div class="prose prose-lg dark:prose-invert max-w-none">
+        <h2>Stage 8: Operational Issues</h2>
+        
+        <p>You've grown successfully, but now you're dealing with the complexity that comes with scale. Things that used to be simple are now complicated, and you need to manage multiple moving parts effectively.</p>
+
+        <h3>What This Stage Looks Like</h3>
+        <ul>
+          <li>You have multiple teams and departments</li>
+          <li>Processes are becoming complex and inefficient</li>
+          <li>Communication and coordination challenges</li>
+          <li>Quality and consistency issues</li>
+          <li>Resource allocation and prioritization problems</li>
+        </ul>
+
+        <h3>Key Challenges</h3>
+        <ul>
+          <li><strong>Process Complexity:</strong> Managing increasingly complex workflows</li>
+          <li><strong>Team Coordination:</strong> Aligning multiple teams and departments</li>
+          <li><strong>Quality Control:</strong> Maintaining standards at scale</li>
+          <li><strong>Resource Management:</strong> Optimizing allocation of people and resources</li>
+          <li><strong>Change Management:</strong> Implementing improvements without disruption</li>
+        </ul>
+
+        <h3>What You Need to Know</h3>
+        <p>This stage is about operational excellence. You need to build systems that can handle complexity while maintaining quality and efficiency. It's about working smarter, not just harder.</p>
+
+        <h3>Critical Focus Areas</h3>
+        <ul>
+          <li>Process optimization and standardization</li>
+          <li>Team structure and communication</li>
+          <li>Quality assurance and control systems</li>
+          <li>Performance measurement and KPIs</li>
+          <li>Continuous improvement and innovation</li>
+        </ul>
+
+        <h3>Common Operational Issues</h3>
+        <ul>
+          <li><strong>Siloed Teams:</strong> Lack of cross-functional collaboration</li>
+          <li><strong>Inefficient Processes:</strong> Redundant or overly complex workflows</li>
+          <li><strong>Quality Inconsistency:</strong> Variable output quality</li>
+          <li><strong>Resource Waste:</strong> Inefficient use of time and money</li>
+          <li><strong>Communication Gaps:</strong> Information not flowing effectively</li>
+        </ul>
+
+        <h3>Next Steps</h3>
+        <p>When you've optimized operations and are focused on maximizing profitability, you're entering the "Pursuing Revenue" stage. This is about fine-tuning for maximum financial performance.</p>
+
+        <div class="bg-yellow-50 dark:bg-yellow-900/20 p-6 rounded-lg border-l-4 border-yellow-500">
+          <h4>🔧 Pro Tip</h4>
+          <p>Focus on the 80/20 rule. Identify the 20% of processes that cause 80% of your problems and fix those first. Don't try to optimize everything at once.</p>
+        </div>
+      </div>
+    </div>
+  </Content>
+
+  <CallToAction
+    id="operations-cta"
+    class="py-16 md:py-24"
+    background="dark"
+    title="Ready to Optimize Revenue?"
+    subtitle="Get guidance for maximizing profitability and financial performance."
+    actions={[
+      { text: 'Pursuing Revenue', href: '/article/pursuing-revenue', variant: 'primary' },
+      { text: 'Browse All Articles', href: '/article' },
+    ]}
+  />
+</Layout>

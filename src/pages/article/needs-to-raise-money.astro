@@ -1,0 +1,98 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Content from '~/components/widgets/Content.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Needs to Raise Money - CXO Atlas',
+  description: 'Funding for growth and scaling operations. Get practical guidance for entrepreneurs seeking investment capital.',
+  keywords: 'fundraising, investment, venture capital, startup funding, business growth, scaling',
+  canonical: 'https://cxo-atlas.com/article/needs-to-raise-money'
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    title="Needs to Raise Money"
+    subtitle="Funding for growth and scaling operations. Get practical guidance for entrepreneurs seeking investment capital."
+    actions={[
+      { text: 'Browse All Articles', href: '/article', variant: 'primary' },
+      { text: 'Back to Journey Map', href: '/#journey' },
+    ]}
+    image={{ src: '~/assets/images/hero-image.png', alt: 'Needs to Raise Money' }}
+  />
+
+  <Content
+    id="funding-content"
+    class="py-16 md:py-24"
+    background="light"
+  >
+    <div class="max-w-4xl mx-auto">
+      <div class="prose prose-lg dark:prose-invert max-w-none">
+        <h2>Stage 6: Needs to Raise Money</h2>
+        
+        <p>You've proven your business model works, but you need capital to grow faster than your current revenue allows. This is where you enter the world of fundraising and investment.</p>
+
+        <h3>What This Stage Looks Like</h3>
+        <ul>
+          <li>You have proven product-market fit</li>
+          <li>You need capital to scale operations</li>
+          <li>You're considering different funding options</li>
+          <li>You're preparing pitch decks and financial models</li>
+          <li>You're networking with potential investors</li>
+        </ul>
+
+        <h3>Key Challenges</h3>
+        <ul>
+          <li><strong>Funding Strategy:</strong> Choosing the right type of funding</li>
+          <li><strong>Valuation:</strong> Determining your company's worth</li>
+          <li><strong>Investor Relations:</strong> Building relationships with investors</li>
+          <li><strong>Due Diligence:</strong> Preparing for investor scrutiny</li>
+          <li><strong>Growth Planning:</strong> Using capital effectively</li>
+        </ul>
+
+        <h3>What You Need to Know</h3>
+        <p>Fundraising is a full-time job that can take 6-12 months. You need to be prepared for rejection, have a clear growth plan, and understand the trade-offs of taking external capital.</p>
+
+        <h3>Funding Options</h3>
+        <ul>
+          <li><strong>Bootstrapping:</strong> Growing with existing revenue</li>
+          <li><strong>Friends & Family:</strong> Early-stage personal connections</li>
+          <li><strong>Angel Investors:</strong> Individual high-net-worth investors</li>
+          <li><strong>Venture Capital:</strong> Institutional investment funds</li>
+          <li><strong>Debt Financing:</strong> Loans and credit lines</li>
+        </ul>
+
+        <h3>Critical Preparation</h3>
+        <ul>
+          <li>Financial projections and models</li>
+          <li>Market analysis and competitive positioning</li>
+          <li>Team and organizational structure</li>
+          <li>Growth strategy and milestones</li>
+          <li>Risk assessment and mitigation plans</li>
+        </ul>
+
+        <h3>Next Steps</h3>
+        <p>When you secure funding and are ready to scale operations, you're entering the "Ready to Expand" stage. This is where you use capital to accelerate growth.</p>
+
+        <div class="bg-indigo-50 dark:bg-indigo-900/20 p-6 rounded-lg border-l-4 border-indigo-500">
+          <h4>💼 Pro Tip</h4>
+          <p>Choose investors who bring more than money. Look for strategic value, industry expertise, and networks that can help your business grow beyond just capital.</p>
+        </div>
+      </div>
+    </div>
+  </Content>
+
+  <CallToAction
+    id="funding-cta"
+    class="py-16 md:py-24"
+    background="dark"
+    title="Ready to Scale Operations?"
+    subtitle="Get guidance for using capital to accelerate growth."
+    actions={[
+      { text: 'Ready to Expand', href: '/article/ready-to-expand', variant: 'primary' },
+      { text: 'Browse All Articles', href: '/article' },
+    ]}
+  />
+</Layout>

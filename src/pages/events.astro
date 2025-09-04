@@ -5,8 +5,8 @@ import Content from '~/components/widgets/Content.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 
 const metadata = {
-  title: 'Community — CXO Atlas',
-  description: 'Join monthly events with people who actually get it. Virtual roundtables and 1:1 coaching sessions with experienced operators.',
+  title: 'Events — CXO Atlas',
+  description: 'Join monthly events with people who actually get it. Virtual roundtables and 1:1 coaching sessions with experts.',
 };
 ---
 
@@ -16,20 +16,20 @@ const metadata = {
     actions={[
       {
         variant: 'primary',
-        text: 'Join Community',
+        text: 'Join Events',
         href: '/signup',
-        icon: 'tabler:users',
+        icon: 'tabler:calendar',
       },
       { text: 'View Upcoming Events', href: '#events' },
     ]}
-    image={{ src: '~/assets/images/hero-image.png', alt: 'CXO Atlas Community' }}
+    image={{ src: '~/assets/images/hero-image.png', alt: 'CXO Atlas Events' }}
   >
     <Fragment slot="title">
       Monthly Events with People Who <span class="text-accent dark:text-white">Actually Get It</span>
     </Fragment>
 
     <Fragment slot="subtitle">
-      Join conversations with other founders and operators who are dealing with similar challenges. Plus optional one-on-one coaching when you need someone to talk through a specific situation without judgment.
+      Join conversations with other founders and entrepreneurs who are dealing with similar challenges. Plus optional one-on-one coaching when you need someone to talk through a specific situation without judgment.
     </Fragment>
   </Hero>
 
@@ -57,7 +57,7 @@ const metadata = {
             Managing Through Your First Economic Downturn
           </h3>
           <p class="text-gray-600 dark:text-gray-400 mb-4">
-            Learn from operators who've navigated economic uncertainty and come out stronger. We'll cover cash flow management, team decisions, and maintaining morale during tough times.
+            Learn from entrepreneurs who've navigated economic uncertainty and come out stronger. We'll cover cash flow management, team decisions, and maintaining morale during tough times.
           </p>
           <div class="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-4">
             <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -71,7 +71,7 @@ const metadata = {
             </svg>
             2:00 PM - 3:30 PM EST
           </div>
-          <button class="bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
+          <button class="bg-gradient-to-r from-blue-600 to-blue-500 text-white px-6 py-2 rounded-lg font-semibold hover:from-blue-700 hover:to-blue-600 transition-all duration-300 transform hover:scale-105">
             Register Now
           </button>
         </div>
@@ -107,14 +107,14 @@ const metadata = {
   <Content
     isReversed
     tagline="1:1 Coaching"
-    title="Book time with experienced operators"
+    title="Book time with experts"
     items={[
       {
         title: 'Specific Situations',
         description: 'Get help with a particular challenge you\'re facing right now, not general advice.',
       },
       {
-        title: 'Experienced Operators',
+        title: 'Experienced Entrepreneurs',
         description: 'Work with people who\'ve been in your shoes and made it through similar challenges.',
       },
       {
@@ -166,18 +166,18 @@ const metadata = {
     actions={[
       {
         variant: 'primary',
-        text: 'Join Community',
+        text: 'Join Events',
         href: '/signup',
-        icon: 'tabler:users',
+        icon: 'tabler:calendar',
       },
     ]}
   >
     <Fragment slot="title">
-      Ready to connect with operators&nbsp;<br class="block sm:hidden" /><span class="sm:whitespace-nowrap">who get it?</span>
+      Ready to connect with entrepreneurs&nbsp;<br class="block sm:hidden" /><span class="sm:whitespace-nowrap">who get it?</span>
     </Fragment>
 
     <Fragment slot="subtitle">
-      Join 2,500+ founders and operators who are sharing real experiences and helping each other navigate the challenges of building and scaling businesses.
+      Join 2,500+ founders and entrepreneurs who are sharing real experiences and helping each other navigate the challenges of building and scaling businesses.
     </Fragment>
   </CallToAction>
 </Layout>

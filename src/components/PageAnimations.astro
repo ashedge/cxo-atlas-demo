@@ -1,0 +1,237 @@
+---
+// Page Animations Component
+---
+
+<script>
+  // Page transition and animation handler
+  document.addEventListener('DOMContentLoaded', function() {
+    // Page transition
+    const pageTransition = document.querySelector('.page-transition');
+    if (pageTransition) {
+      pageTransition.classList.add('loaded');
+    }
+
+    // Intersection Observer for scroll animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    // Observe all elements with intersect-animate class
+    const animateElements = document.querySelectorAll('.intersect-animate');
+    animateElements.forEach(el => {
+      observer.observe(el);
+    });
+
+    // Staggered animations for cards and lists
+    const staggerElements = document.querySelectorAll('[class*="animate-stagger"]');
+    staggerElements.forEach((el, index) => {
+      el.style.animationDelay = `${index * 0.1}s`;
+    });
+
+    // Add hover effects to cards
+    const cards = document.querySelectorAll('.hover-lift, .hover-scale, .hover-glow');
+    cards.forEach(card => {
+      card.addEventListener('mouseenter', function() {
+        this.style.transition = 'all 0.3s ease';
+      });
+    });
+
+    // Smooth scroll for anchor links
+    const anchorLinks = document.querySelectorAll('a[href^="#"]');
+    anchorLinks.forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          targetElement.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Add loading animation to buttons
+    const buttons = document.querySelectorAll('button, .btn');
+    buttons.forEach(button => {
+      button.addEventListener('click', function() {
+        this.classList.add('loading');
+        setTimeout(() => {
+          this.classList.remove('loading');
+        }, 1000);
+      });
+    });
+
+    // Parallax effect for hero section
+    const hero = document.querySelector('.hero-section');
+    if (hero) {
+      window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        const rate = scrolled * -0.5;
+        hero.style.transform = `translateY(${rate}px)`;
+      });
+    }
+
+    // Counter animation for statistics
+    const counters = document.querySelectorAll('[data-counter]');
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const counter = entry.target;
+          const target = parseInt(counter.getAttribute('data-counter'));
+          const duration = 2000; // 2 seconds
+          const increment = target / (duration / 16); // 60fps
+          let current = 0;
+
+          const updateCounter = () => {
+            current += increment;
+            if (current < target) {
+              counter.textContent = Math.floor(current);
+              requestAnimationFrame(updateCounter);
+            } else {
+              counter.textContent = target;
+            }
+          };
+
+          updateCounter();
+          counterObserver.unobserve(counter);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    counters.forEach(counter => {
+      counterObserver.observe(counter);
+    });
+
+    // Add entrance animations to sections
+    const sections = document.querySelectorAll('section, .section');
+    sections.forEach((section, index) => {
+      section.classList.add('intersect-animate');
+      section.style.animationDelay = `${index * 0.2}s`;
+    });
+
+    // Typing animation for text
+    const typingElements = document.querySelectorAll('[data-typing]');
+    typingElements.forEach(element => {
+      const text = element.getAttribute('data-typing');
+      const speed = parseInt(element.getAttribute('data-speed')) || 100;
+      let i = 0;
+      
+      element.textContent = '';
+      
+      const typeWriter = () => {
+        if (i < text.length) {
+          element.textContent += text.charAt(i);
+          i++;
+          setTimeout(typeWriter, speed);
+        }
+      };
+
+      // Start typing when element is visible
+      const typingObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            typeWriter();
+            typingObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.5 });
+
+      typingObserver.observe(element);
+    });
+  });
+
+  // Page exit animation
+  window.addEventListener('beforeunload', function() {
+    document.body.style.opacity = '0';
+    document.body.style.transform = 'translateY(-20px)';
+  });
+</script>
+
+<style>
+  /* Additional animation styles */
+  .hero-section {
+    transition: transform 0.1s ease-out;
+  }
+
+  /* Button loading state */
+  .loading {
+    position: relative;
+    color: transparent !important;
+  }
+
+  .loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 2px solid transparent;
+    border-top: 2px solid currentColor;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  /* Enhanced card animations */
+  .card-animate {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .card-animate:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  }
+
+  /* Text reveal animation */
+  .text-reveal {
+    overflow: hidden;
+  }
+
+  .text-reveal span {
+    display: inline-block;
+    transform: translateY(100%);
+    animation: reveal 0.6s ease forwards;
+  }
+
+  @keyframes reveal {
+    to {
+      transform: translateY(0);
+    }
+  }
+
+  /* Gradient animation */
+  .gradient-animate {
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+  }
+
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+</style>

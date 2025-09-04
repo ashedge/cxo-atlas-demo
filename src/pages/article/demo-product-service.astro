@@ -1,0 +1,98 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Content from '~/components/widgets/Content.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Demo Product or Service - CXO Atlas',
+  description: 'First version ready for testing and customer feedback. Get practical guidance for entrepreneurs launching their MVP.',
+  keywords: 'MVP, minimum viable product, product launch, customer feedback, product testing, startup launch',
+  canonical: 'https://cxo-atlas.com/article/demo-product-service'
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    title="Demo Product or Service"
+    subtitle="First version ready for testing and customer feedback. Get practical guidance for entrepreneurs launching their MVP."
+    actions={[
+      { text: 'Browse All Articles', href: '/article', variant: 'primary' },
+      { text: 'Back to Journey Map', href: '/#journey' },
+    ]}
+    image={{ src: '~/assets/images/hero-image.png', alt: 'Demo Product or Service' }}
+  />
+
+  <Content
+    id="demo-product-content"
+    class="py-16 md:py-24"
+    background="light"
+  >
+    <div class="max-w-4xl mx-auto">
+      <div class="prose prose-lg dark:prose-invert max-w-none">
+        <h2>Stage 4: Demo Product or Service</h2>
+        
+        <p>You've built something. It might not be perfect, but it's real and it works. This is your first version - your Minimum Viable Product (MVP) - and it's time to get it in front of real people.</p>
+
+        <h3>What This Stage Looks Like</h3>
+        <ul>
+          <li>You have a working product or service to show</li>
+          <li>You're actively seeking customer feedback</li>
+          <li>You're testing your value proposition</li>
+          <li>You're learning what customers actually want</li>
+          <li>You're iterating based on real feedback</li>
+        </ul>
+
+        <h3>Key Challenges</h3>
+        <ul>
+          <li><strong>Customer Acquisition:</strong> Finding people willing to test your product</li>
+          <li><strong>Feedback Collection:</strong> Getting honest, actionable feedback</li>
+          <li><strong>Product Iteration:</strong> Deciding what to change and what to keep</li>
+          <li><strong>Quality vs. Speed:</strong> Balancing perfection with learning</li>
+          <li><strong>Market Validation:</strong> Proving there's real demand</li>
+        </ul>
+
+        <h3>What You Need to Know</h3>
+        <p>This stage is about learning, not perfection. Your goal is to validate your assumptions and understand what customers actually value. Be prepared to pivot based on what you learn.</p>
+
+        <h3>Critical Activities</h3>
+        <ul>
+          <li>Customer interviews and feedback sessions</li>
+          <li>Product testing and usability studies</li>
+          <li>Market validation and demand testing</li>
+          <li>Iteration planning and prioritization</li>
+          <li>Early customer relationship building</li>
+        </ul>
+
+        <h3>Success Metrics</h3>
+        <ul>
+          <li>Customer engagement and usage</li>
+          <li>Feedback quality and actionability</li>
+          <li>Market interest and demand signals</li>
+          <li>Product-market fit indicators</li>
+          <li>Customer retention and satisfaction</li>
+        </ul>
+
+        <h3>Next Steps</h3>
+        <p>When you start getting paying customers, you're entering the "Has Some Customers" stage. This is where you transition from testing to real business.</p>
+
+        <div class="bg-orange-50 dark:bg-orange-900/20 p-6 rounded-lg border-l-4 border-orange-500">
+          <h4>🎯 Pro Tip</h4>
+          <p>Focus on learning, not selling. Your goal is to understand your customers deeply, not to make money yet. The insights you gain here will determine your long-term success.</p>
+        </div>
+      </div>
+    </div>
+  </Content>
+
+  <CallToAction
+    id="demo-cta"
+    class="py-16 md:py-24"
+    background="dark"
+    title="Ready to Get Your First Customers?"
+    subtitle="Get guidance for converting feedback into paying customers."
+    actions={[
+      { text: 'Has Some Customers', href: '/article/has-some-customers', variant: 'primary' },
+      { text: 'Browse All Articles', href: '/article' },
+    ]}
+  />
+</Layout>

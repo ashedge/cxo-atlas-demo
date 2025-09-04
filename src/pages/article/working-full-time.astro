@@ -1,0 +1,89 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Content from '~/components/widgets/Content.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Working Full-Time in Your Business - CXO Atlas',
+  description: 'Dedicated business focus and full-time entrepreneurship. Get practical guidance for entrepreneurs building their business full-time.',
+  keywords: 'full-time entrepreneur, business building, startup operations, business management, entrepreneurship',
+  canonical: 'https://cxo-atlas.com/article/working-full-time'
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    title="Working Full-Time in Your Business"
+    subtitle="Dedicated business focus and full-time entrepreneurship. Get practical guidance for entrepreneurs building their business full-time."
+    actions={[
+      { text: 'Browse All Articles', href: '/article', variant: 'primary' },
+      { text: 'Back to Journey Map', href: '/#journey' },
+    ]}
+    image={{ src: '~/assets/images/hero-image.png', alt: 'Working Full-Time in Your Business' }}
+  />
+
+  <Content
+    id="working-full-time-content"
+    class="py-16 md:py-24"
+    background="light"
+  >
+    <div class="max-w-4xl mx-auto">
+      <div class="prose prose-lg dark:prose-invert max-w-none">
+        <h2>Stage 3: Working Full-Time in Your Business</h2>
+        
+        <p>You've made the leap. This is your full-time job now. You're no longer dabbling - you're building a real business with your complete focus and energy.</p>
+
+        <h3>What This Stage Looks Like</h3>
+        <ul>
+          <li>Your business is your primary source of income</li>
+          <li>You're working on the business 40+ hours per week</li>
+          <li>You're making key operational decisions daily</li>
+          <li>You're building systems and processes</li>
+          <li>You're learning to manage cash flow and expenses</li>
+        </ul>
+
+        <h3>Key Challenges</h3>
+        <ul>
+          <li><strong>Cash Flow Management:</strong> Ensuring you have enough money to operate</li>
+          <li><strong>Time Management:</strong> Prioritizing the most important tasks</li>
+          <li><strong>Decision Making:</strong> Making critical business decisions under pressure</li>
+          <li><strong>Product Development:</strong> Building and improving your offering</li>
+          <li><strong>Customer Acquisition:</strong> Finding and converting customers</li>
+        </ul>
+
+        <h3>What You Need to Know</h3>
+        <p>This stage is about execution and momentum. You need to be productive, make good decisions quickly, and build sustainable systems. The pressure is real, but so is the opportunity.</p>
+
+        <h3>Critical Focus Areas</h3>
+        <ul>
+          <li>Revenue generation and customer acquisition</li>
+          <li>Product/service development and improvement</li>
+          <li>Financial management and cash flow</li>
+          <li>Operational efficiency and systems</li>
+          <li>Market positioning and competitive advantage</li>
+        </ul>
+
+        <h3>Next Steps</h3>
+        <p>When you have a working product or service ready for testing, you're entering the "Demo Product or Service" stage. This is where you start getting real feedback from potential customers.</p>
+
+        <div class="bg-purple-50 dark:bg-purple-900/20 p-6 rounded-lg border-l-4 border-purple-500">
+          <h4>⚡ Pro Tip</h4>
+          <p>Focus on one thing at a time. It's tempting to work on everything, but successful entrepreneurs prioritize ruthlessly and execute deeply on the most important tasks.</p>
+        </div>
+      </div>
+    </div>
+  </Content>
+
+  <CallToAction
+    id="working-cta"
+    class="py-16 md:py-24"
+    background="dark"
+    title="Ready to Launch Your Product?"
+    subtitle="Get guidance for bringing your first product or service to market."
+    actions={[
+      { text: 'Demo Product or Service', href: '/article/demo-product-service', variant: 'primary' },
+      { text: 'Browse All Articles', href: '/article' },
+    ]}
+  />
+</Layout>

@@ -1,0 +1,107 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Content from '~/components/widgets/Content.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Pursuing Revenue - CXO Atlas',
+  description: 'Optimizing profitability and maximizing revenue. Get practical guidance for entrepreneurs focused on financial performance.',
+  keywords: 'revenue optimization, profitability, financial performance, business growth, revenue maximization',
+  canonical: 'https://cxo-atlas.com/article/pursuing-revenue'
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    title="Pursuing Revenue"
+    subtitle="Optimizing profitability and maximizing revenue. Get practical guidance for entrepreneurs focused on financial performance."
+    actions={[
+      { text: 'Browse All Articles', href: '/article', variant: 'primary' },
+      { text: 'Back to Journey Map', href: '/#journey' },
+    ]}
+    image={{ src: '~/assets/images/hero-image.png', alt: 'Pursuing Revenue' }}
+  />
+
+  <Content
+    id="revenue-content"
+    class="py-16 md:py-24"
+    background="light"
+  >
+    <div class="max-w-4xl mx-auto">
+      <div class="prose prose-lg dark:prose-invert max-w-none">
+        <h2>Stage 9: Pursuing Revenue</h2>
+        
+        <p>You've built a solid business with good operations. Now it's time to focus on maximizing profitability and revenue. This is about fine-tuning your business model for optimal financial performance.</p>
+
+        <h3>What This Stage Looks Like</h3>
+        <ul>
+          <li>You have stable operations and processes</li>
+          <li>You're focused on revenue optimization</li>
+          <li>You're analyzing and improving unit economics</li>
+          <li>You're exploring new revenue streams</li>
+          <li>You're maximizing customer lifetime value</li>
+        </ul>
+
+        <h3>Key Challenges</h3>
+        <ul>
+          <li><strong>Revenue Optimization:</strong> Maximizing revenue from existing customers</li>
+          <li><strong>Pricing Strategy:</strong> Finding the optimal price points</li>
+          <li><strong>Cost Management:</strong> Reducing costs without sacrificing quality</li>
+          <li><strong>New Revenue Streams:</strong> Identifying and developing additional income sources</li>
+          <li><strong>Financial Planning:</strong> Long-term financial strategy and planning</li>
+        </ul>
+
+        <h3>What You Need to Know</h3>
+        <p>This stage is about financial optimization. You need to understand your unit economics deeply and find ways to improve them. It's about working on the business, not just in it.</p>
+
+        <h3>Critical Focus Areas</h3>
+        <ul>
+          <li>Unit economics and profitability analysis</li>
+          <li>Pricing strategy and optimization</li>
+          <li>Customer lifetime value maximization</li>
+          <li>Cost structure optimization</li>
+          <li>Revenue diversification and growth</li>
+        </ul>
+
+        <h3>Revenue Optimization Strategies</h3>
+        <ul>
+          <li><strong>Upselling & Cross-selling:</strong> Increasing revenue per customer</li>
+          <li><strong>Pricing Optimization:</strong> Testing and improving price points</li>
+          <li><strong>Customer Retention:</strong> Reducing churn and increasing lifetime value</li>
+          <li><strong>Operational Efficiency:</strong> Reducing costs and improving margins</li>
+          <li><strong>New Product Development:</strong> Creating additional revenue streams</li>
+        </ul>
+
+        <h3>Financial Metrics to Track</h3>
+        <ul>
+          <li>Gross margin and net margin</li>
+          <li>Customer acquisition cost (CAC)</li>
+          <li>Customer lifetime value (CLV)</li>
+          <li>Monthly recurring revenue (MRR)</li>
+          <li>Revenue growth rate and predictability</li>
+        </ul>
+
+        <h3>Long-term Considerations</h3>
+        <p>At this stage, you're also thinking about long-term strategic options like acquisitions, partnerships, or exit strategies. You've built a valuable business that others might want to acquire.</p>
+
+        <div class="bg-teal-50 dark:bg-teal-900/20 p-6 rounded-lg border-l-4 border-teal-500">
+          <h4>💎 Pro Tip</h4>
+          <p>Focus on sustainable growth over short-term gains. Build a business that can generate consistent, predictable revenue over the long term. That's what creates real value.</p>
+        </div>
+      </div>
+    </div>
+  </Content>
+
+  <CallToAction
+    id="revenue-cta"
+    class="py-16 md:py-24"
+    background="dark"
+    title="Ready to Start Your Journey?"
+    subtitle="Get practical guidance for every stage of your entrepreneurial journey."
+    actions={[
+      { text: 'Back to Journey Map', href: '/#journey', variant: 'primary' },
+      { text: 'Browse All Articles', href: '/article' },
+    ]}
+  />
+</Layout>

@@ -5,8 +5,8 @@ import Content from '~/components/widgets/Content.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 
 const metadata = {
-  title: 'AI Coaching — CXO Atlas',
-  description: 'Get 24/7 AI coaching trained on real operational knowledge from operators who\'ve actually built and scaled companies.',
+  title: '1:1 Coaching — CXO Atlas',
+  description: 'Get 24/7 AI coaching trained on real operational knowledge from entrepreneurs who\'ve actually built and scaled companies.',
 };
 ---
 
@@ -20,9 +20,9 @@ const metadata = {
         href: '/signup',
         icon: 'tabler:rocket',
       },
-      { text: 'Browse Articles', href: '/blog' },
+      { text: 'Browse Articles', href: '/article' },
     ]}
-    image={{ src: '~/assets/images/hero-image.png', alt: 'AI Coaching for Business Operations' }}
+    image={{ src: '~/assets/images/hero-image.png', alt: '1:1 Coaching for Business Operations' }}
   >
     <Fragment slot="title">
       AI Coach Trained on <span class="text-accent dark:text-white">Real Operational Knowledge</span>
@@ -42,7 +42,7 @@ const metadata = {
           How it works
         </h2>
         <p class="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-          Our AI coach is trained on our entire knowledge base of 450+ articles written by operators who've actually built and scaled companies.
+          Our AI coach is trained on our entire knowledge base of 450+ articles written by entrepreneurs who've actually built and scaled companies.
         </p>
       </div>
       
@@ -64,7 +64,7 @@ const metadata = {
             </svg>
           </div>
           <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">Get Practical Answers</h3>
-          <p class="text-gray-600 dark:text-gray-400">Receive answers based on what actually worked for operators in similar situations, not academic theory.</p>
+          <p class="text-gray-600 dark:text-gray-400">Receive answers based on what actually worked for entrepreneurs in similar situations, not academic theory.</p>
         </div>
         
         <div class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-sm">
@@ -85,7 +85,7 @@ const metadata = {
   <Content
     isReversed
     tagline="Example Conversations"
-    title="Real questions from real operators"
+    title="Real questions from real entrepreneurs"
     items={[
       {
         title: 'Equity & Compensation',
@@ -106,7 +106,7 @@ const metadata = {
     ]}
     image={{
       src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'AI Coaching Conversations',
+      alt: '1:1 Coaching Conversations',
     }}
   >
     <Fragment slot="content">
@@ -152,7 +152,7 @@ const metadata = {
     </Fragment>
 
     <Fragment slot="subtitle">
-      Join 2,500+ operators who are getting practical guidance 24/7. No theory, just what actually works.
+      Join 2,500+ entrepreneurs who are getting practical guidance 24/7. No theory, just what actually works.
     </Fragment>
   </CallToAction>
 </Layout>

@@ -1,0 +1,98 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Content from '~/components/widgets/Content.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Has Some Customers - CXO Atlas',
+  description: 'Early customer validation and revenue generation. Get practical guidance for entrepreneurs with their first paying customers.',
+  keywords: 'first customers, customer validation, revenue generation, customer acquisition, startup growth',
+  canonical: 'https://cxo-atlas.com/article/has-some-customers'
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    title="Has Some Customers"
+    subtitle="Early customer validation and revenue generation. Get practical guidance for entrepreneurs with their first paying customers."
+    actions={[
+      { text: 'Browse All Articles', href: '/article', variant: 'primary' },
+      { text: 'Back to Journey Map', href: '/#journey' },
+    ]}
+    image={{ src: '~/assets/images/hero-image.png', alt: 'Has Some Customers' }}
+  />
+
+  <Content
+    id="has-customers-content"
+    class="py-16 md:py-24"
+    background="light"
+  >
+    <div class="max-w-4xl mx-auto">
+      <div class="prose prose-lg dark:prose-invert max-w-none">
+        <h2>Stage 5: Has Some Customers</h2>
+        
+        <p>Congratulations! You have paying customers. This is a huge milestone - you've proven that people are willing to pay for what you're offering. Now it's time to understand why and scale it.</p>
+
+        <h3>What This Stage Looks Like</h3>
+        <ul>
+          <li>You have paying customers who value your product/service</li>
+          <li>You're generating consistent revenue</li>
+          <li>You're learning what drives customer satisfaction</li>
+          <li>You're building customer relationships</li>
+          <li>You're identifying your most successful sales channels</li>
+        </ul>
+
+        <h3>Key Challenges</h3>
+        <ul>
+          <li><strong>Customer Retention:</strong> Keeping your existing customers happy</li>
+          <li><strong>Scaling Sales:</strong> Finding more customers like your best ones</li>
+          <li><strong>Product Development:</strong> Balancing new features with stability</li>
+          <li><strong>Customer Support:</strong> Managing growing customer needs</li>
+          <li><strong>Financial Management:</strong> Managing cash flow with real revenue</li>
+        </ul>
+
+        <h3>What You Need to Know</h3>
+        <p>This stage is about understanding your success and replicating it. You need to identify what makes your best customers successful and find more people like them.</p>
+
+        <h3>Critical Focus Areas</h3>
+        <ul>
+          <li>Customer success and satisfaction</li>
+          <li>Sales process optimization</li>
+          <li>Product-market fit validation</li>
+          <li>Customer acquisition scaling</li>
+          <li>Revenue predictability and growth</li>
+        </ul>
+
+        <h3>Success Metrics</h3>
+        <ul>
+          <li>Customer lifetime value (CLV)</li>
+          <li>Customer acquisition cost (CAC)</li>
+          <li>Monthly recurring revenue (MRR)</li>
+          <li>Customer retention and churn rates</li>
+          <li>Net Promoter Score (NPS)</li>
+        </ul>
+
+        <h3>Next Steps</h3>
+        <p>When you need more capital to grow faster than your current revenue allows, you're entering the "Needs to Raise Money" stage. This is where you consider external funding.</p>
+
+        <div class="bg-red-50 dark:bg-red-900/20 p-6 rounded-lg border-l-4 border-red-500">
+          <h4>💰 Pro Tip</h4>
+          <p>Focus on customer success over customer acquisition. Happy customers will refer others and provide valuable feedback. It's easier to grow with satisfied customers than to constantly acquire new ones.</p>
+        </div>
+      </div>
+    </div>
+  </Content>
+
+  <CallToAction
+    id="customers-cta"
+    class="py-16 md:py-24"
+    background="dark"
+    title="Ready to Scale with Funding?"
+    subtitle="Get guidance for raising capital to accelerate growth."
+    actions={[
+      { text: 'Needs to Raise Money', href: '/article/needs-to-raise-money', variant: 'primary' },
+      { text: 'Browse All Articles', href: '/article' },
+    ]}
+  />
+</Layout>

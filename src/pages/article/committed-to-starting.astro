@@ -1,0 +1,89 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Content from '~/components/widgets/Content.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Committed to Starting a Business - CXO Atlas',
+  description: 'Making the decision to pursue your business idea. Get practical guidance for entrepreneurs ready to take the leap.',
+  keywords: 'business commitment, startup decision, entrepreneurship, business planning, startup launch',
+  canonical: 'https://cxo-atlas.com/article/committed-to-starting'
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    title="Committed to Starting a Business"
+    subtitle="Making the decision to pursue your business idea. Get practical guidance for entrepreneurs ready to take the leap."
+    actions={[
+      { text: 'Browse All Articles', href: '/article', variant: 'primary' },
+      { text: 'Back to Journey Map', href: '/#journey' },
+    ]}
+    image={{ src: '~/assets/images/hero-image.png', alt: 'Committed to Starting a Business' }}
+  />
+
+  <Content
+    id="committed-to-starting-content"
+    class="py-16 md:py-24"
+    background="light"
+  >
+    <div class="max-w-4xl mx-auto">
+      <div class="prose prose-lg dark:prose-invert max-w-none">
+        <h2>Stage 2: Committed to Starting a Business</h2>
+        
+        <p>You've made the decision. This isn't just a side project or hobby anymore - you're committed to building a real business. This is where the rubber meets the road.</p>
+
+        <h3>What This Stage Looks Like</h3>
+        <ul>
+          <li>You've decided to pursue your business idea seriously</li>
+          <li>You're starting to allocate time and resources to the business</li>
+          <li>You're telling people about your business plans</li>
+          <li>You're beginning to build your first product or service</li>
+          <li>You're researching legal and business requirements</li>
+        </ul>
+
+        <h3>Key Challenges</h3>
+        <ul>
+          <li><strong>Time Management:</strong> Balancing business building with other responsibilities</li>
+          <li><strong>Resource Allocation:</strong> How to invest your limited time and money wisely</li>
+          <li><strong>Legal Setup:</strong> Business structure, licenses, and compliance</li>
+          <li><strong>Product Development:</strong> Building your first version</li>
+          <li><strong>Market Entry:</strong> How to start reaching customers</li>
+        </ul>
+
+        <h3>What You Need to Know</h3>
+        <p>This stage is about momentum. You need to move fast enough to maintain your commitment while being smart enough to avoid costly mistakes. The key is starting simple and iterating quickly.</p>
+
+        <h3>Critical Decisions</h3>
+        <ul>
+          <li>Business structure (LLC, Corporation, etc.)</li>
+          <li>Initial funding strategy</li>
+          <li>First product/service version</li>
+          <li>Target customer segment</li>
+          <li>Pricing strategy</li>
+        </ul>
+
+        <h3>Next Steps</h3>
+        <p>When you're ready to dedicate significant time to your business, you're entering the "Working Full-Time" stage. This is where you transition from part-time entrepreneur to full-time business builder.</p>
+
+        <div class="bg-green-50 dark:bg-green-900/20 p-6 rounded-lg border-l-4 border-green-500">
+          <h4>🚀 Pro Tip</h4>
+          <p>Start with the simplest version of your business that can generate revenue. You can always add complexity later, but you need to prove the concept first.</p>
+        </div>
+      </div>
+    </div>
+  </Content>
+
+  <CallToAction
+    id="committed-cta"
+    class="py-16 md:py-24"
+    background="dark"
+    title="Ready to Go Full-Time?"
+    subtitle="Get guidance for transitioning to dedicated business focus."
+    actions={[
+      { text: 'Working Full-Time', href: '/article/working-full-time', variant: 'primary' },
+      { text: 'Browse All Articles', href: '/article' },
+    ]}
+  />
+</Layout>

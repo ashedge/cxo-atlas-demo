@@ -4,14 +4,14 @@ export const headerData = {
   links: [
     {
       text: 'Articles',
-      href: getBlogPermalink(),
+      href: getPermalink('/article'),
     },
     {
-      text: 'AI Coaching',
+      text: '1:1 Coaching',
       href: getPermalink('/ai-coaching'),
     },
     {
-      text: 'Community',
+      text: 'Events',
       href: getPermalink('/community'),
     },
     {
@@ -30,9 +30,9 @@ export const footerData = {
     {
       title: 'Content',
       links: [
-        { text: 'Articles', href: getBlogPermalink() },
-        { text: 'AI Coaching', href: getPermalink('/ai-coaching') },
-        { text: 'Community', href: getPermalink('/community') },
+        { text: 'Articles', href: getPermalink('/article') },
+        { text: '1:1 Coaching', href: getPermalink('/ai-coaching') },
+        { text: 'Events', href: getPermalink('/events') },
         { text: 'Newsletter', href: '#' },
       ],
     },

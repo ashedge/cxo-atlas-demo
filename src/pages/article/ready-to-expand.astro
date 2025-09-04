@@ -1,0 +1,98 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Content from '~/components/widgets/Content.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Ready to Expand - CXO Atlas',
+  description: 'Scaling operations and growing your business. Get practical guidance for entrepreneurs ready to scale their operations.',
+  keywords: 'business scaling, operations scaling, business growth, team building, operational excellence',
+  canonical: 'https://cxo-atlas.com/article/ready-to-expand'
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    title="Ready to Expand"
+    subtitle="Scaling operations and growing your business. Get practical guidance for entrepreneurs ready to scale their operations."
+    actions={[
+      { text: 'Browse All Articles', href: '/article', variant: 'primary' },
+      { text: 'Back to Journey Map', href: '/#journey' },
+    ]}
+    image={{ src: '~/assets/images/hero-image.png', alt: 'Ready to Expand' }}
+  />
+
+  <Content
+    id="expand-content"
+    class="py-16 md:py-24"
+    background="light"
+  >
+    <div class="max-w-4xl mx-auto">
+      <div class="prose prose-lg dark:prose-invert max-w-none">
+        <h2>Stage 7: Ready to Expand</h2>
+        
+        <p>You have the capital, the customers, and the product-market fit. Now it's time to scale your operations and grow your business systematically. This is where you build the infrastructure for long-term success.</p>
+
+        <h3>What This Stage Looks Like</h3>
+        <ul>
+          <li>You have funding to invest in growth</li>
+          <li>You're hiring and building your team</li>
+          <li>You're expanding into new markets or products</li>
+          <li>You're building systems and processes</li>
+          <li>You're scaling your operations</li>
+        </ul>
+
+        <h3>Key Challenges</h3>
+        <ul>
+          <li><strong>Team Building:</strong> Hiring the right people at the right time</li>
+          <li><strong>Systems & Processes:</strong> Building scalable operations</li>
+          <li><strong>Market Expansion:</strong> Growing into new segments or geographies</li>
+          <li><strong>Product Development:</strong> Expanding your product portfolio</li>
+          <li><strong>Culture & Leadership:</strong> Maintaining company culture during growth</li>
+        </ul>
+
+        <h3>What You Need to Know</h3>
+        <p>Scaling is about building systems that work without you. You need to transition from being the doer to being the leader, and from managing tasks to managing people and processes.</p>
+
+        <h3>Critical Focus Areas</h3>
+        <ul>
+          <li>Organizational structure and hierarchy</li>
+          <li>Hiring and talent acquisition</li>
+          <li>Operational systems and automation</li>
+          <li>Market expansion strategy</li>
+          <li>Financial management and reporting</li>
+        </ul>
+
+        <h3>Scaling Strategies</h3>
+        <ul>
+          <li><strong>Horizontal Scaling:</strong> Expanding into new markets</li>
+          <li><strong>Vertical Scaling:</strong> Adding new products/services</li>
+          <li><strong>Operational Scaling:</strong> Improving efficiency and capacity</li>
+          <li><strong>Team Scaling:</strong> Building and managing larger teams</li>
+          <li><strong>Technology Scaling:</strong> Upgrading systems and infrastructure</li>
+        </ul>
+
+        <h3>Next Steps</h3>
+        <p>As you scale, you'll inevitably face operational challenges and complexity. When these become significant, you're entering the "Operational Issues" stage.</p>
+
+        <div class="bg-pink-50 dark:bg-pink-900/20 p-6 rounded-lg border-l-4 border-pink-500">
+          <h4>📈 Pro Tip</h4>
+          <p>Scale systematically, not chaotically. Focus on one area at a time - whether it's team, systems, or markets - and get it right before moving to the next.</p>
+        </div>
+      </div>
+    </div>
+  </Content>
+
+  <CallToAction
+    id="expand-cta"
+    class="py-16 md:py-24"
+    background="dark"
+    title="Facing Operational Challenges?"
+    subtitle="Get guidance for managing complexity as you scale."
+    actions={[
+      { text: 'Operational Issues', href: '/article/operational-issues', variant: 'primary' },
+      { text: 'Browse All Articles', href: '/article' },
+    ]}
+  />
+</Layout>
