@@ -21,7 +21,7 @@ export const headerData = {
   ],
   actions: [
     { text: 'Sign In', href: '#' },
-    { text: 'Start Free Trial', href: '#', variant: 'primary' },
+    { text: 'Get Access', href: '#', variant: 'primary' },
   ],
 };
 
